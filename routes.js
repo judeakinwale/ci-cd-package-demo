@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-    res.status(200).send("Welcome to the application!")
+    res.status(200).send("Welcome!")
 })
 
 app.get('/test', (req, res) => {
