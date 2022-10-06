@@ -1,0 +1,35 @@
+name: Create Build Arifact
+
+on:
+  push:
+    branches: [ "deploy" ]
+  pull_request:
+    branches: [ "deploy" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'npm'
+        
+    - name: Install Dependencies
+      run: npm ci
+    - run: npm test
+    
+    - name: Build application artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: server-artifact
+        path: .
+        
+      
