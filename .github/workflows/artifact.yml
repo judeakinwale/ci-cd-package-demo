@@ -38,5 +38,7 @@ jobs:
         username: judeakinwale
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
-        repository: judeakinwale/packaged-server
+        repository: judeakinwale/publish-packages/app-test
+        tag_with_sha: true
+
       
