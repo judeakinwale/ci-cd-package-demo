@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
-    res.status(200).send("Hello World!")
+    res.status(200).send("Dev Branch")
 })
 
 
