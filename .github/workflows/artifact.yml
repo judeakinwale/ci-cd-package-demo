@@ -1,4 +1,4 @@
-name: Create Build Arifact
+name: Create Build Arifact and Deploy to GitHub Registry
 
 on:
   push:
@@ -32,4 +32,13 @@ jobs:
         name: server-artifact
         path: .
         
+    - name: Build container and save to registry
+      uses: docker/build-push-action@v1
+      with:
+        username: judeakinwale
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: judeakinwale/publish-packages/app-test
+        tag_with_sha: true
+
       
